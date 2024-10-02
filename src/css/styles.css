@@ -24,7 +24,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background: var(--linear-gradient);
-    background-image:url(/bg-HF-events_01.jpg);
+    background-image:url(bg-HF-events_01.jpg);
     background-position: center;
     background-size: cover;
 }
