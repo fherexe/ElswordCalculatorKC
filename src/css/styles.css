@@ -96,3 +96,12 @@ body {
     background-color: var(--color-primary-2);
 }
 
+.footer {
+    font-size: 10px;
+}
+
+.footer a {
+    font-weight: bolder;
+    color: white;
+    text-decoration: none;
+}
