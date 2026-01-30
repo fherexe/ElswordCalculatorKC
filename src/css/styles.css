@@ -7,7 +7,7 @@
 
 :root {
     --bg: #0b1220;
-    --card: rgba(255, 255, 255, 0.06);
+    --card: rgba(255, 255, 255, 0.007);
     --card-2: rgba(255, 255, 255, 0.08);
     --border: rgba(255, 255, 255, 0.12);
     --text: rgba(255, 255, 255, 0.92);
@@ -51,12 +51,17 @@ body {
     font-weight: 700;
     letter-spacing: 0.2px;
     margin-bottom: 18px;
+        text-align: center;
+
 }
+
+
 
 .input-container {
     display: grid;
     gap: 14px;
     margin-top: 10px;
+
 }
 
 /* Linha de inputs */
@@ -176,4 +181,41 @@ select:focus {
 
 .footer a:hover {
     border-bottom-color: rgba(255, 255, 255, 0.75);
+}
+
+.calculator{
+  border-radius: 14px;
+}
+
+input, select{
+  border-radius: 10px;
+}
+
+#result{
+  border-radius: 12px;
+}
+
+
+select{
+  appearance: none;
+  cursor: pointer;
+
+  background-color: rgba(20, 22, 32, 0.75);
+  color: var(--text);
+
+  border: 1px solid rgba(255,255,255,.18);
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,.8) 50%),
+    linear-gradient(135deg, rgba(255,255,255,.8) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+
+select:focus{
+  background-color: rgba(30, 32, 48, 0.85);
 }
