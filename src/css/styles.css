@@ -1,106 +1,179 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
-
-:root {
-    --color-primary-1: #3076c5d8;
-    --color-primary-2: #a653f5da;
-
-    --color-neutral-1: #f8f8f8;
-    --color-neutral-2:#343434;
-    --color-neutral-3: #262626;
-
-    --linear-gradient: linear-gradient(120deg, var(--color-primary-1), var(--color-primary-2));
-}
-
+/* Reset básico */
 * {
-    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --bg: #0b1220;
+    --card: rgba(255, 255, 255, 0.06);
+    --card-2: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.12);
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.65);
+    --accent: #7c3aed;
+    /* roxinho elegante */
+    --accent-2: #22c55e;
+    /* verdinho pro resultado */
+    --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: radial-gradient(1200px 700px at 20% 10%, rgba(124, 58, 237, 0.28), transparent 55%),
+        radial-gradient(1000px 600px at 80% 30%, rgba(34, 197, 94, 0.18), transparent 60%),
+        linear-gradient(180deg, #070b14, var(--bg));
     background-image: url(https://img.koggames.com/ES/microsite/2024/0925/harmony-festival/bg-HF-events_01.jpg);
     background-position: center;
     background-size: cover;
+    color: var(--text);
+    padding: 24px;
+
 }
 
+/* Card principal */
 .calculator {
-    background-color: var(--color-neutral-3);
-    color: var(--color-neutral-1);
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.323);
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
+    width: min(560px, 92vw);
+    background: linear-gradient(180deg, var(--card), rgba(255, 255, 255, 0.03));
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    backdrop-filter: blur(10px);
+}
+
+.calculator h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    margin-bottom: 18px;
 }
 
 .input-container {
-    margin: 25px 0px;
+    display: grid;
+    gap: 14px;
+    margin-top: 10px;
 }
 
+/* Linha de inputs */
 .input-group {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
     align-items: center;
-    justify-content: center;
 }
 
-.input-group input {
-    background-color: var(--color-neutral-2);
-    color: var(--color-neutral-1);
-    padding: 8px;
-    border: 1px solid var(--color-primary-1);
-    border-radius: 4px;
-    width: 100px;
-    font-size: 16px;
-    text-align: center;
-}
+/* Em telas pequenas, empilha */
+@media (max-width: 520px) {
+    .input-group {
+        grid-template-columns: 1fr;
+    }
 
-.input-group input:focus-visible {
-    outline: transparent;
+    .input-group span {
+        justify-self: start;
+        padding: 2px 6px;
+    }
 }
 
 .input-group span {
-    background-color: var(--color-neutral-2);
-    padding: 0px 15px;
-}
-
-.input-group p {
-    background: var(--linear-gradient);
-    border-radius: 4px;
-    padding: 10px;
-    width: 100px;
-}
-
-.input-text {
-    margin: 15px 0px;
-}
-
-#calculate {
-    background: var(--linear-gradient);
-    border: none;
-    color: var(--color-neutral-1);
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 16px;
+    font-size: 0.95rem;
+    color: var(--muted);
     font-weight: 600;
-    cursor: pointer;
+    opacity: 0.95;
+}
+
+input,
+select {
     width: 100%;
-    transition: background-color .5s ease;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.22);
+    color: var(--text);
+    outline: none;
+    transition: 0.2s ease;
+}
+
+/* Tira o “branco” do select em alguns browsers */
+select {
+    appearance: none;
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Focus bonito */
+input:focus,
+select:focus {
+    border-color: rgba(124, 58, 237, 0.65);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+    transform: translateY(-1px);
+}
+
+/* Resultado como badge */
+#result {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    background: rgba(34, 197, 94, 0.12);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+#result i {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 1.05rem;
+}
+
+/* Botão (opcional, mas bonito) */
+#calculate {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    background: linear-gradient(180deg, rgba(124, 58, 237, 0.95), rgba(124, 58, 237, 0.7));
+    color: white;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
 #calculate:hover {
-    background-color: var(--color-primary-2);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 34px rgba(124, 58, 237, 0.24);
 }
 
+#calculate:active {
+    transform: translateY(0px);
+}
+
+/* Footer */
 .footer {
-    font-size: 10px;
+    margin-top: 14px;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.4;
 }
 
 .footer a {
-    font-weight: bolder;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.35);
+}
+
+.footer a:hover {
+    border-bottom-color: rgba(255, 255, 255, 0.75);
 }

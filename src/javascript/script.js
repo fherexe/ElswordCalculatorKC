@@ -1,18 +1,28 @@
-document.getElementById('calculate').addEventListener('click', function () {
-    const num1 = parseFloat(document.getElementById('num1').value);
-    const num2 = parseFloat(document.getElementById('num2').value);
-    const num3 = parseFloat(document.getElementById('num3').value);
+const kcInput = document.getElementById('kcInput');
+const rateSelect = document.getElementById('rateSelect');
+const resultElement = document.getElementById('result');
 
-    if (isNaN(num1) || isNaN(num2) || isNaN(num3) || num1 === 0) {
-        document.getElementById('result').textContent = 'Invalid';
+function calculate() {
+    const kc = parseFloat(kcInput.value);
+    const rate = parseFloat(rateSelect.value);
+
+    if (isNaN(kc) || isNaN(rate) || kc === 0) {
+        resultElement.innerHTML = '<i class="fa-solid fa-xmark"></i>';
         return;
     }
 
-    let result = (num3 * num2) / num1;
+    // Regra: 100 KC = rate ED
+    let result = (kc * rate) / 100;
 
     if (Number.isInteger(result)) {
-        document.getElementById('result').textContent = result;
+        resultElement.textContent = result;
     } else {
-        document.getElementById('result').textContent = result.toFixed(2).replace('.', ',');
+        resultElement.textContent = result.toFixed(2).replace('.', ',');
     }
-});
+}
+
+// Dispara ao digitar KC
+kcInput.addEventListener('input', calculate);
+
+// Dispara ao escolher o rate
+rateSelect.addEventListener('change', calculate);

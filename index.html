@@ -3,43 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="src/css/styles.css">
     <title>Elsword KC Calculator</title>
 </head>
 <body>
+
     <div class="calculator">
         <h1>Elsword KC Calculator</h1>
 
         <div class="input-container">
+
+            <!-- KC + Rate -->
             <div class="input-group">
-                <input type="number" id="num1" placeholder="KC">
+                <input 
+                    type="number" 
+                    id="kcInput" 
+                    placeholder="Digite a quantidade de KC"
+                >
+
                 <span>Rate</span>
-                <input type="number" id="num2" placeholder="ED">
+
+                <select id="rateSelect">
+                    <option value="">Escolha o rate</option>
+                    <option value="14">100 : 14</option>
+                    <option value="15">100 : 15</option>
+                    <option value="16">100 : 16</option>
+                    <option value="17">100 : 17</option>
+                    <option value="18">100 : 18</option>
+                    <option value="19">100 : 19</option>
+                    <option value="20">100 : 20</option>
+                </select>
             </div>
 
-            <p class="input-text">
-               <br>
-            </p>
-
+            <!-- Resultado -->
             <div class="input-group">
-                <input type="number" id="num3" placeholder="KC">
-                <span> = </span>
+                <span>Resultado</span>
                 <p id="result">
                     <i class="fa-solid fa-xmark"></i>
                 </p>
             </div>
+
         </div>
 
-        <button id="calculate">
+        <!-- Botão opcional (não é necessário para o cálculo) -->
+        <button id="calculate" style="display: none;">
             Result
         </button>
 
-        <p><p class="footer">
+        <p class="footer">
             <br>
-            &copy;2024 Website developed by <a href="https://fherexe.github.io/PortfolioPessoal/">Fher</a>, all rights reserved.
-        </p></p>
+            &copy;2024 Website developed by 
+            <a href="https://fherexe.github.io/PortfolioPessoal/">Fher</a>, all rights reserved.
+        </p>
     </div>
+
     <script src="src/javascript/script.js"></script>
 </body>
 </html>
